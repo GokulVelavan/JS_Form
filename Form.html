@@ -23,9 +23,9 @@
 
         </div>
         <div>
-            <label for ="email">Email</label>
-            <input type ="email" Id="email" name="=email">
-            <error-output class ="email-Error" for ="email"></error-output>
+            <label for ="email_">Email</label>
+            <input type ="email" Id="email_" name="=email">
+            <error-output class ="email-Error" for ="email_"></error-output>
             
         </div>
         <div>
@@ -74,7 +74,18 @@
           else textError.textContent="name is incorrect";
 
         });
-     
+      //Email Check
+
+        const email = document.querySelector('#email_');
+        const  emailError=document.querySelector('.email-Error');
+        email.addEventListener('input',function()
+        {
+          let emailRegex= RegExp('^[a-z]{3}[.][a-z]*[@]{1}[bl]{2}[.]{1}[co]{2}[.]{1}[a-z]*$');
+          if(emailRegex.test(email.value))
+          emailerror.textContent="";
+          else emailerror.textContent="Email is incorrect";
+        });
+
         const salary= document.querySelector('#salary');
         const output= document.querySelector('.salary-output');
         output.textContent =salary.value;
