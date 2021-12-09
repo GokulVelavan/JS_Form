@@ -19,7 +19,7 @@
         <div>
             <label for ="Pwd">Password</label>
             <input type ="password" Id="Pwd" name="=pwd">
-            <error-output class="pwd-error" for="pwd"></error-output>
+            <error-output class="pwd-error" for="Pwd"></error-output>
 
         </div>
         <div>
@@ -92,6 +92,14 @@
             let telRegex = RegExp('^[0-9]{1,3}[ : ][0-9]{10}$');
             if(telRegex.test(tel.value)) telError.textContent = "";
             else telError.textContent = "Telephone Number is Incorrect";
+        })
+
+        const pwd = document.querySelector('#Pwd');
+           const pwdError = document.querySelector('.pwd-error');
+            pwd.addEventListener('input', function(){
+            let pwdRegex = RegExp('^[a-z A-Z 0-9 @#$%^&+=].{8,}$');
+            if(pwdRegex.test(pwd.value)) pwdError.textContent = "";
+            else pwdError.textContent = "Password is Incorrect";
         })
 
         const salary= document.querySelector('#salary');
